@@ -8,8 +8,11 @@ pipeline {
    }
    stages {
    stage('Checkout'){
-   git changelog: false, poll: false, url: 'https://github.com/kishorelinga/maven-project.git'
+   steps 
+		{
+			git changelog: false, poll: false, url: 'https://github.com/kishorelinga/maven-project.git'
    
+		}
    }
    stage('Build') {
         steps 
