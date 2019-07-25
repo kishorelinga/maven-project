@@ -1,13 +1,17 @@
 pipeline {
+   environment
+   {
+     mvnHome = tool 'localmaven'
+   }
    stages {
-   stage('Preparation') { 
-             
-      mvnHome = tool 'localmaven'
+   stage {
+   git changelog: false, poll: false, url: 'https://github.com/kishorelinga/maven-project.git'
+   
    }
    stage('Build') {
         steps 
 		{
-			bat(/"${mvnHome}\bin\mvn" -Dmaven.test.failure.ignore clean package/)
+			bat"${mvnHome}\bin\mvn -clean package"
 		}
          
      
