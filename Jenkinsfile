@@ -1,6 +1,6 @@
 pipeline {
-   
-   stage('Preparation') { // for display purposes
+   stages {
+   stage('Preparation') { 
              
       mvnHome = tool 'localmaven'
    }
@@ -21,5 +21,6 @@ pipeline {
         startup.bat'''
 	}
     
+   }
    }
 }
