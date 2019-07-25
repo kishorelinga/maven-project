@@ -3,8 +3,11 @@ pipeline {
    {
      mvnHome = tool 'localmaven'
    }
+   agent {
+   label 'master'
+   }
    stages {
-   stage {
+   stage('Checkout'){
    git changelog: false, poll: false, url: 'https://github.com/kishorelinga/maven-project.git'
    
    }
